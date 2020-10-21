@@ -1,0 +1,135 @@
+a{color: #003195;}
+.mt-2
+{
+	margin-top:20px !important;
+}
+.unline{text-decoration:underline;}
+.w-320{width:320px ;}
+.bg-dark {
+    background-color: #003195!important;
+}
+.pull-left{float:left;}
+.pull-right{float:right;}
+.boxes{
+	border:1px solid #eee;
+}
+.p-r{padding-right:0;}
+.p-l{padding-left:0;}
+.np{padding:0;}
+.boxes {
+    border: 2px solid #eee;
+    padding: 50px 0px;
+	margin:20px 0;
+}
+
+.boxes img {
+    height: 58px;
+	margin-right: 20px;
+}
+.boxes:hover,.boxes.active
+{
+	border:#003195;
+	background: #003195;
+}
+.boxes h5 a{
+	color:#333;
+	text-decoration:none;
+}
+.boxes:hover h5 a{
+	color:#fff;
+}
+.boxes h5 .img {
+    background: url(../img/01.png) no-repeat;
+    width: 63px;
+    height: 78px;
+    position: absolute;
+    left: 25%;
+    top: 24%;
+}
+.boxes.active h5 a .img , .boxes:hover h5 .img
+{
+	background:url(../img/01_h.png) no-repeat;
+}
+.boxes.padding:hover
+{
+	padding:52px 0;
+}
+.boxes.active.padding,.boxes:hover .padding
+{
+	padding:52px 0;
+}
+.boxes h5 .img1 {
+    background: url(../img/02.png) no-repeat;
+    width: 46px;
+    height: 58px;
+    position: absolute;
+    left: 25%;
+    top: 31%;
+}
+
+.boxes.active h5 .img1 ,.boxes:hover h5 a .img1 
+{
+	background:url(../img/02_h.png) no-repeat;
+}
+p a{font-weight:600;}
+.btn-bd-primary {
+    font-weight: 600;
+    color: #fff;
+    background-color: #003195;
+    border-color: #003195;
+}
+.btn-outline-secondary {
+    color: #003195;
+    border-color: #003195;
+}
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #003195;
+    border-color: #003195;
+}
+.input-design{
+	padding: .5rem 1rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	border-radius: .3rem;
+	color: #003195;
+	border:1px solid #003195;
+}
+.mt-7
+{
+	margin-top: 7px;
+}
+@media (max-width: 991px)
+{
+	.boxes{margin-bottom:0;}
+	.boxes h5 .img{left:12%;}
+	.boxes h5 .img1{left:15%;}
+}
+@media (max-width: 800px)
+{
+	.boxes h5 .img,	.boxes h5 .img1{left:12%;top:32%;}
+	h5{margin-top:20px;}
+}
+@media (max-width: 400px)
+{
+	.w-320{width:auto;}
+	.boxes h5 .img, .boxes h5 .img1 {
+    left: 6%;
+    top: 37%;
+}
+
+}
+.boxes.active h5,.boxes:hover h5
+{
+	color:#fff;
+}
+.list li
+{
+	float:left;
+	text-align:left;
+	width:100%;
+}
+.m-l-25
+{
+	margin-left:25px;
+}
