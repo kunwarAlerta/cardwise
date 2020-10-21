@@ -7,7 +7,9 @@ export const SelectCard = ({ setStep }) => {
   const [Cards, setCards] = useState({});
   useEffect(() => {
     axios
-      .get(`/selectcard`)
+      .get(
+        `http://cardwisetest3-env.eba-kk7hgqrd.us-east-2.elasticbeanstalk.com/selectcard`
+      )
       .then((res) => {
         //  setIssuers(res.data.issuers);
         setCards(res.data.cards);
@@ -18,7 +20,7 @@ export const SelectCard = ({ setStep }) => {
       });
   }, []);
 
-  console.log(Cards);
+  console.log(process.env);
   return (
     <div className="container">
       <div className="row">
