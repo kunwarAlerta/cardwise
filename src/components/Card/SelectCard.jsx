@@ -14,7 +14,6 @@ export const SelectCard = ({ setStep }) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
       });
   }, []);
@@ -31,21 +30,23 @@ export const SelectCard = ({ setStep }) => {
           <p className="lead mt-5">Which credit card do you own?</p>
           <div className="col-md-4 offset-md-4">
             <div className=" flex-column flex-md-row text-center">
-              <select
-                type="text"
-                className="form-control"
-                placeholder="Type here"
-                aria-label="Type here"
-                aria-describedby="Type here"
-              >
-                {!loading &&
-                  Cards.map((cd) => (
+              {loading ? (
+                "Loading"
+              ) : (
+                <select
+                  type="text"
+                  className="form-control"
+                  placeholder="Type here"
+                  aria-label="Type here"
+                  aria-describedby="Type here"
+                >
+                  {Cards.map((cd) => (
                     <option key={cd.card_id} value={cd.card_id}>
                       {cd.card}
                     </option>
                   ))}
-              </select>
-
+                </select>
+              )}
               <button
                 className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"
                 onClick={(e) => setStep((step) => step + 1)}
