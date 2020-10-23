@@ -1,7 +1,8 @@
 import React from "react";
 
 const ProgressContext = React.createContext({
-  ProgressStep: 1,
+  step: 1,
+  currentCard: null,
 });
 
 export default ProgressContext;

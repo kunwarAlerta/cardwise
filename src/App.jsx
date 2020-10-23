@@ -6,8 +6,11 @@ import ProgressContext from "./context//ProgressContext";
 
 function App() {
   const [step, setStep] = useState(1);
+  const [currentCard, setCurrentCard] = useState(1);
   return (
-    <ProgressContext.Provider value={{ step, setStep }}>
+    <ProgressContext.Provider
+      value={{ step, setStep, currentCard, setCurrentCard }}
+    >
       <Header />
       <Main />
     </ProgressContext.Provider>
