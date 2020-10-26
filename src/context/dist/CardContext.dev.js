@@ -9,10 +9,9 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var ProgressContext = _react["default"].createContext({
-  step: 1,
+var CardContext = _react["default"].createContext({
   currentCard: null
 });
 
-var _default = ProgressContext;
+var _default = CardContext;
 exports["default"] = _default;

@@ -1,23 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Header } from "./layouts/Header";
-// import routes from "./utils/routes/index";
-import { BrowserRouter as Routes } from "react-router-dom";
-import ProgressContext from "./context//ProgressContext";
-// import { GuestRoute } from "./utils/routes/GuestRoute";
-import { Main } from "./pages/Main";
+import routes from "./utils/routes/index";
+import { BrowserRouter as Routes, Switch } from "react-router-dom";
+import CardContext from "./context/CardContext";
+import GuestRoute from "./utils/routes/GuestRoute";
 
 function App() {
-  const [step, setStep] = useState(1);
-  const [currentCard, setCurrentCard] = useState(1);
+  const [currentCard, setCurrentCard] = useState(null);
+  useEffect(() => {
+    let currentCard = localStorage.getItem("currentCard");
+    if (currentCard) {
+      setCurrentCard(currentCard);
+    } else {
+      setCurrentCard(null);
+    }
+  }, [currentCard]);
+
   return (
     <Routes>
-      <ProgressContext.Provider
-        value={{ step, setStep, currentCard, setCurrentCard }}
+      <CardContext.Provider
+        value={{ currentCard, setCurrentCard }}
       >
         <Header />
-        <Main />
-      </ProgressContext.Provider>
+        <Switch>
+          {routes.map((route, index) => {
+            if (route.protected === "guest") {
+              return (
+                <GuestRoute
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                >
+                  <route.component />
+                </GuestRoute>
+              );
+            }
+            return (
+              <GuestRoute
+                key={index}
+                path={route.path}
+                exact={route.exact}
+              >
+                <route.component />
+              </GuestRoute>
+            );
+          })}
+        </Switch>
+      </CardContext.Provider>
     </Routes>
   );
 }

@@ -1,13 +1,26 @@
 import React from "react";
-import { Home } from "../../components/Card/Home";
+import { Welcome } from "../../components/Card/Welcome";
 import { SelectCard } from "../../components/Card/SelectCard";
+import { NoCard } from "../../components/Card/NoCard";
 import { Managepoints } from "../../components/Points/ManagePoints";
+import { Redirect } from "react-router-dom";
 
 export default [
   {
+    path: "/",
+    exact: true,
+    component: () => <Redirect to="/welcome" />,
+    protected: "guest",
+  },
+  {
+    path: "/nocard",
+    component: () => <NoCard />,
+    protected: "guest",
+  },
+  {
     path: "/welcome",
     exact: true,
-    component: () => <Home />,
+    component: () => <Welcome />,
     protected: "guest",
   },
   {
@@ -17,6 +30,7 @@ export default [
   },
   {
     path: "/managepoints/redeem",
+    exact: true,
     component: () => <Managepoints />,
     protected: "guest",
   },

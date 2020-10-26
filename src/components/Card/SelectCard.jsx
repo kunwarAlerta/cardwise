@@ -1,13 +1,15 @@
 import React, { useEffect, useContext, useState } from "react";
-import ProgressContext from "../../context/ProgressContext";
+import CardContext from "../../context/CardContext";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-export const SelectCard = ({ setStep }) => {
+export const SelectCard = () => {
   const [loading, setLoading] = useState(true);
   const [Cards, setCards] = useState({});
   const { setCurrentCard } = useContext(
-    ProgressContext,
+    CardContext,
   );
+  const history = useHistory();
   useEffect(() => {
     axios
       .get(
@@ -24,6 +26,7 @@ export const SelectCard = ({ setStep }) => {
 
   const onChangeCard = (card) => {
     setCurrentCard(card);
+    localStorage.setItem("currentCard", card);
   };
 
   return (
@@ -41,7 +44,7 @@ export const SelectCard = ({ setStep }) => {
             )
             : (
               <div className="col-md-4 offset-md-4">
-                <form onSubmit={() => setStep((step) => step + 1)}>
+                <form onSubmit={() => history.push("/managepoints/redeem")}>
                   <div className=" flex-column flex-md-row text-center">
                     <select
                       required

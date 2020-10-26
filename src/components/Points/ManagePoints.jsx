@@ -1,6 +1,11 @@
-import React from "react";
-export const Managepoints = ({ currentCard }) => (
-  <div className="container">
+import React, { useContext } from "react";
+import CardContext from "../../context/CardContext";
+
+export const Managepoints = () => {
+  const { currentCard } = useContext(
+    CardContext,
+  );
+  return (<div className="container">
     <div className="row">
       <div className="col-lg-12 text-center">
         <div className="col-lg-6 col-md-6 pull-left  np">
@@ -73,5 +78,5 @@ export const Managepoints = ({ currentCard }) => (
         </div>
       </div>
     </div>
-  </div>
-);
+  </div>);
+};
