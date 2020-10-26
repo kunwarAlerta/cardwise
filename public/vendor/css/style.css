@@ -46,6 +46,7 @@ a {
 	border: 2px solid #eee;
 	padding: 50px 0px;
 	margin: 20px 0;
+	cursor: pointer;
 }
 
 .boxes img {
@@ -53,7 +54,6 @@ a {
 	margin-right: 20px;
 }
 
-.boxes:hover,
 .boxes.active {
 	border: #003195;
 	background: #003195;
@@ -64,9 +64,7 @@ a {
 	text-decoration: none;
 }
 
-.boxes:hover h5 a {
-	color: #fff;
-}
+
 
 .boxes h5 .img {
 	background: url(../img/01.png) no-repeat;
@@ -77,8 +75,7 @@ a {
 	top: 24%;
 }
 
-.boxes.active h5 a .img,
-.boxes:hover h5 .img {
+.boxes.active h5 a .img {
 	background: url(../img/01_h.png) no-repeat;
 }
 
@@ -88,13 +85,7 @@ a {
 }
 
 
-
-.boxes.padding:hover {
-	padding: 52px 0;
-}
-
-.boxes.active.padding,
-.boxes:hover .padding {
+.boxes.active.padding {
 	padding: 52px 0;
 }
 
@@ -107,8 +98,7 @@ a {
 	top: 31%;
 }
 
-.boxes.active h5 .img1,
-.boxes:hover h5 a .img1 {
+.boxes.active h5 .img1 {
 	background: url(../img/02_h.png) no-repeat;
 }
 
@@ -187,8 +177,7 @@ p a {
 
 }
 
-.boxes.active h5,
-.boxes:hover h5 {
+.boxes.active h5 {
 	color: #fff;
 }
 

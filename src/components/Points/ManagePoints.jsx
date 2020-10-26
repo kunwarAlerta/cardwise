@@ -23,7 +23,7 @@ export const Managepoints = ({ currentCard }) => (
       <div className="col-lg-12 text-center ">
         <h3 className="mt-5">How many points do you have?</h3>
         <p className="lead">
-          Your Card : {currentCard}
+          Your Card: {currentCard}
         </p>
         <p className="lead">
           <a href="!#" data-toggle="modal" data-target="#redeemModal">
@@ -48,15 +48,17 @@ export const Managepoints = ({ currentCard }) => (
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h4 className="modal-title">Modal Heading</h4>
+              <h4 className="modal-title">How to check your points tally:</h4>
               <button type="button" className="close" data-dismiss="modal">
                 ×
               </button>
             </div>
             <div className="modal-body">
-              <span>Go to Netbanking</span>
-              <br />
-              <span>Click on manage points</span>
+              <ul>
+                <li>(Instructions to be updated later)</li>
+                <li>Go to Netbanking</li>
+                <li>Click on manage points</li>
+              </ul>
             </div>
             <div className="modal-footer">
               <button
