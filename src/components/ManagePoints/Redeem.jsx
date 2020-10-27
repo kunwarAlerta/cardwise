@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import CardContext from "../../context/CardContext";
 
-export const Managepoints = () => {
-  const { currentCard } = useContext(
+export const Redeem = () => {
+  const { currentCard, points, setPoints } = useContext(
     CardContext,
   );
+  const setRedeemPoints = (value) => {
+    setPoints(value);
+    localStorage.setItem("points", value);
+  };
+  const history = useHistory();
   return (<div className="container">
     <div className="row">
       <div className="col-lg-12 text-center">
@@ -36,17 +42,24 @@ export const Managepoints = () => {
           </a>
         </p>
         <div className=" flex-column flex-md-row text-center">
-          <input
-            type="text"
-            className="input-design w-320 mr-2"
-            placeholder="Enter Here"
-          />
-          <a
-            href="04.html"
-            className="btn btn-lg btn-outline-secondary mb-3 w-320 mt-7"
+          <form
+            onSubmit={() => history.push("/managepoints/redemption_options")}
           >
-            View Redemption Options
-          </a>
+            <input
+              type="number"
+              className="input-design w-320 mr-2"
+              placeholder="Enter Here"
+              onChange={(e) => setRedeemPoints(e.target.value)}
+              defaultValue={points}
+              required
+            />
+            <button
+              type="submit"
+              className="btn btn-lg btn-outline-secondary mb-3 w-320 mt-7"
+            >
+              View Redemption Options
+            </button>
+          </form>
         </div>
       </div>
       <div className="modal" id="redeemModal">

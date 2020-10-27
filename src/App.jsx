@@ -8,8 +8,15 @@ import GuestRoute from "./utils/routes/GuestRoute";
 
 function App() {
   const [currentCard, setCurrentCard] = useState(null);
+  const [points, setPoints] = useState(null);
   useEffect(() => {
     let currentCard = localStorage.getItem("currentCard");
+    let points = localStorage.getItem("points");
+    if (points) {
+      setPoints(points);
+    } else {
+      setPoints(null);
+    }
     if (currentCard) {
       setCurrentCard(currentCard);
     } else {
@@ -20,7 +27,7 @@ function App() {
   return (
     <Routes>
       <CardContext.Provider
-        value={{ currentCard, setCurrentCard }}
+        value={{ currentCard, setCurrentCard, points, setPoints }}
       >
         <Header />
         <Switch>

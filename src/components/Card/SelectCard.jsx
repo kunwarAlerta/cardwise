@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 export const SelectCard = () => {
   const [loading, setLoading] = useState(true);
   const [Cards, setCards] = useState({});
-  const { setCurrentCard } = useContext(
+  const { currentCard, setCurrentCard } = useContext(
     CardContext,
   );
   const history = useHistory();
@@ -53,6 +53,7 @@ export const SelectCard = () => {
                       aria-label="Type here"
                       aria-describedby="Type here"
                       onChange={(e) => onChangeCard(e.target.value)}
+                      defaultValue={currentCard}
                     >
                       <option value="">
                         Select Card

@@ -190,3 +190,7 @@ p a {
 .m-l-25 {
 	margin-left: 25px;
 }
+
+.btn:hover {
+	color: #fff;
+}

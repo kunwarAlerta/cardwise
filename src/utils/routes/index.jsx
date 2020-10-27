@@ -2,7 +2,8 @@ import React from "react";
 import { Welcome } from "../../components/Card/Welcome";
 import { SelectCard } from "../../components/Card/SelectCard";
 import { NoCard } from "../../components/Card/NoCard";
-import { Managepoints } from "../../components/Points/ManagePoints";
+import { Redeem } from "../../components/ManagePoints/Redeem";
+import { RedemptionOptions } from "../../components/ManagePoints/RedemptionOptions";
 import { Redirect } from "react-router-dom";
 
 export default [
@@ -31,7 +32,13 @@ export default [
   {
     path: "/managepoints/redeem",
     exact: true,
-    component: () => <Managepoints />,
+    component: () => <Redeem />,
+    protected: "guest",
+  },
+  {
+    path: "/managepoints/redemption_options",
+    exact: true,
+    component: () => <RedemptionOptions />,
     protected: "guest",
   },
 ];
