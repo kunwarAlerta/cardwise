@@ -7,7 +7,7 @@ import { Loader } from "../../utils/Loader/Loader";
 export const SelectCard = () => {
   const [loading, setLoading] = useState(true);
   const [Cards, setCards] = useState({});
-  const { cardValue, setCardValue, setCardKey } = useContext(
+  const { cardKey, setCardValue, setCardKey } = useContext(
     CardContext,
   );
   const history = useHistory();
@@ -58,7 +58,7 @@ export const SelectCard = () => {
                       aria-label="Type here"
                       aria-describedby="Type here"
                       onChange={(e) => onChangeCard(e)}
-                      defaultValue={cardValue}
+                      defaultValue={cardKey}
                     >
                       <option value="">
                         Select Card

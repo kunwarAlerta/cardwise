@@ -49,7 +49,9 @@ export const RedemptionOptions = () => {
           <button
             className="btn btn-lg btn-bd-primary mb-3  w-320 mt-5"
           >
-            Your Points: <span>{points + "   "}</span>
+            Your Points: <span>
+              {new Intl.NumberFormat("en-US").format(points) + "   "}
+            </span>
 
             <span onClick={() => history.push("/managepoints/redeem")}>
               <i className="fa fa-pencil" aria-hidden="true"></i>
