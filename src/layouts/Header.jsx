@@ -13,7 +13,8 @@ export const Header = () => (
         aria-controls="navbarResponsive"
         aria-expanded="false"
         aria-label="Toggle navigation"
-      ></button>
+      >
+      </button>
     </div>
   </nav>
 );

@@ -1,33 +1,47 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Header } from "./layouts/Header";
-import routes from "./utils/routes/index";
+import routes from "./utils/Routes/index";
 import { BrowserRouter as Routes, Switch } from "react-router-dom";
 import CardContext from "./context/CardContext";
-import GuestRoute from "./utils/routes/GuestRoute";
+import GuestRoute from "./utils/Routes/GuestRoute";
 
 function App() {
-  const [currentCard, setCurrentCard] = useState(null);
+  const [cardValue, setCardValue] = useState(null);
+  const [cardKey, setCardKey] = useState(null);
   const [points, setPoints] = useState(null);
   useEffect(() => {
-    let currentCard = localStorage.getItem("currentCard");
+    let cardValue = localStorage.getItem("cardValue");
     let points = localStorage.getItem("points");
+    let cardKey = localStorage.getItem("cardKey");
+    if (cardKey) {
+      setCardKey(cardKey);
+    } else {
+      setCardKey(null);
+    }
     if (points) {
       setPoints(points);
     } else {
       setPoints(null);
     }
-    if (currentCard) {
-      setCurrentCard(currentCard);
+    if (cardValue) {
+      setCardValue(cardValue);
     } else {
-      setCurrentCard(null);
+      setCardValue(null);
     }
-  }, [currentCard]);
+  }, [cardValue, points, cardKey]);
 
   return (
     <Routes>
       <CardContext.Provider
-        value={{ currentCard, setCurrentCard, points, setPoints }}
+        value={{
+          cardKey,
+          cardValue,
+          points,
+          setCardValue,
+          setCardKey,
+          setPoints,
+        }}
       >
         <Header />
         <Switch>

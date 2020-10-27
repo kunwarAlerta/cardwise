@@ -10,7 +10,8 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var CardContext = _react["default"].createContext({
-  currentCard: null,
+  cardValue: null,
+  cardKey: null,
   points: null
 });
 

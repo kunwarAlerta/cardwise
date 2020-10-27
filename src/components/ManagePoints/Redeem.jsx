@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import CardContext from "../../context/CardContext";
 
 export const Redeem = () => {
-  const { currentCard, points, setPoints } = useContext(
+  const { cardValue, points, setPoints } = useContext(
     CardContext,
   );
   const setRedeemPoints = (value) => {
@@ -34,7 +34,7 @@ export const Redeem = () => {
       <div className="col-lg-12 text-center ">
         <h3 className="mt-5">How many points do you have?</h3>
         <p className="lead">
-          Your Card: {currentCard}
+          Your Card: {cardValue}
         </p>
         <p className="lead">
           <a href="!#" data-toggle="modal" data-target="#redeemModal">

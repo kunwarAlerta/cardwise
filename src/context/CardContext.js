@@ -1,7 +1,8 @@
 import React from "react";
 
 const CardContext = React.createContext({
-  currentCard: null,
+  cardValue: null,
+  cardKey: null,
   points: null,
 });
 

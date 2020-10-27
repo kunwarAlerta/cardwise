@@ -2,11 +2,12 @@ import React, { useEffect, useContext, useState } from "react";
 import CardContext from "../../context/CardContext";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { Loader } from "../../utils/Loader/Loader";
 
 export const SelectCard = () => {
   const [loading, setLoading] = useState(true);
   const [Cards, setCards] = useState({});
-  const { currentCard, setCurrentCard } = useContext(
+  const { cardValue, setCardValue, setCardKey } = useContext(
     CardContext,
   );
   const history = useHistory();
@@ -24,9 +25,13 @@ export const SelectCard = () => {
       });
   }, []);
 
-  const onChangeCard = (card) => {
-    setCurrentCard(card);
-    localStorage.setItem("currentCard", card);
+  const onChangeCard = (e) => {
+    let index = e.nativeEvent.target.selectedIndex;
+    let card = e.nativeEvent.target[index].text;
+    setCardValue(e.nativeEvent.target[index].text);
+    localStorage.setItem("cardValue", card);
+    setCardKey(e.target.value);
+    localStorage.setItem("cardKey", e.target.value);
   };
 
   return (
@@ -40,7 +45,7 @@ export const SelectCard = () => {
           <p className="lead mt-5">Which credit card do you own?</p>
           {loading
             ? (
-              "Loading"
+              <Loader />
             )
             : (
               <div className="col-md-4 offset-md-4">
@@ -52,14 +57,14 @@ export const SelectCard = () => {
                       placeholder="Select Card"
                       aria-label="Type here"
                       aria-describedby="Type here"
-                      onChange={(e) => onChangeCard(e.target.value)}
-                      defaultValue={currentCard}
+                      onChange={(e) => onChangeCard(e)}
+                      defaultValue={cardValue}
                     >
                       <option value="">
                         Select Card
                       </option>
                       {Cards.map((cd) => (
-                        <option key={cd.card_id} value={cd.card}>
+                        <option key={cd.card_id} value={cd.card_id}>
                           {cd.card}
                         </option>
                       ))}
