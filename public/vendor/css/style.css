@@ -194,3 +194,11 @@ p a {
 .btn:hover {
 	color: #fff;
 }
+
+.w-50 {
+	width: 50%;
+}
+
+.top-redeem-select {
+	overflow: hidden;
+}

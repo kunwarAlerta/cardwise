@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Header } from "./layouts/Header";
 import routes from "./utils/Routes/index";
 import { BrowserRouter as Routes, Switch } from "react-router-dom";
 import CardContext from "./context/CardContext";
-import GuestRoute from "./utils/Routes/GuestRoute";
+import HomeRoute from "./utils/Routes/HomeRoute";
+import MainRoute from "./utils/Routes/MainRoute";
 
 function App() {
   const [cardValue, setCardValue] = useState(null);
@@ -43,28 +43,38 @@ function App() {
           setPoints,
         }}
       >
-        <Header />
         <Switch>
           {routes.map((route, index) => {
-            if (route.protected === "guest") {
+            if (route.protected === "home") {
               return (
-                <GuestRoute
+                <HomeRoute
                   key={index}
                   path={route.path}
                   exact={route.exact}
                 >
                   <route.component />
-                </GuestRoute>
+                </HomeRoute>
+              );
+            }
+            if (route.protected === "main") {
+              return (
+                <MainRoute
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                >
+                  <route.component />
+                </MainRoute>
               );
             }
             return (
-              <GuestRoute
+              <HomeRoute
                 key={index}
                 path={route.path}
                 exact={route.exact}
               >
                 <route.component />
-              </GuestRoute>
+              </HomeRoute>
             );
           })}
         </Switch>

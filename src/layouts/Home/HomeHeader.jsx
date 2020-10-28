@@ -1,5 +1,5 @@
 import React from "react";
-export const Header = () => (
+export const HomeHeader = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div className="container">
       <a className="navbar-brand" href="/">

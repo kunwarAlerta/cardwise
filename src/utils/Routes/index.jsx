@@ -1,44 +1,51 @@
 import React from "react";
-import { Welcome } from "../../components/Card/Welcome";
-import { SelectCard } from "../../components/Card/SelectCard";
-import { NoCard } from "../../components/Card/NoCard";
-import { Redeem } from "../../components/ManagePoints/Redeem";
-import { RedemptionOptions } from "../../components/ManagePoints/RedemptionOptions";
+import { Welcome } from "../../components/Home/Welcome";
+import { SelectCard } from "../../components/Home/SelectCard";
+import { NoCard } from "../../components/Home/NoCard";
+import { Redeem } from "../../components/Main/Redeem";
+import { RedemptionOptions } from "../../components/Main/RedemptionOptions";
 import { Redirect } from "react-router-dom";
+import { RedemptionOptionsSelected } from "../../components/Main/RedemptionOptionsSelected";
 
 export default [
   {
     path: "/",
     exact: true,
     component: () => <Redirect to="/welcome" />,
-    protected: "guest",
+    protected: "home",
   },
   {
     path: "/nocard",
     component: () => <NoCard />,
-    protected: "guest",
+    protected: "home",
   },
   {
     path: "/welcome",
     exact: true,
     component: () => <Welcome />,
-    protected: "guest",
+    protected: "home",
   },
   {
     path: "/selectcard",
     component: () => <SelectCard />,
-    protected: "guest",
+    protected: "home",
   },
   {
     path: "/managepoints/redeem",
     exact: true,
     component: () => <Redeem />,
-    protected: "guest",
+    protected: "main",
   },
   {
     path: "/managepoints/redemption_options",
     exact: true,
     component: () => <RedemptionOptions />,
-    protected: "guest",
+    protected: "main",
+  },
+  {
+    path: "/managepoints/redemption_options/:redemption_option_id",
+    exact: true,
+    component: () => <RedemptionOptionsSelected />,
+    protected: "main",
   },
 ];
