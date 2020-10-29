@@ -33,8 +33,16 @@ export const RedemptionOptions = () => {
         <div className="row">
           <div className="col-lg-12 col-md-6 text-center">
             <div className="col-lg-6 col-md-6 pull-left  np">
-              <div className="boxes padding">
-                <h5><div className="img" />Collect Points</h5>
+              <div
+                className="boxes padding"
+                onClick={() =>
+                  history.push(`/managepoints/collectpoints/${cardKey}`)}
+              >
+                <h5>
+                  <div
+                    className="img"
+                  />Collect Points
+                </h5>
               </div>
             </div>
             <div className="col-lg-6 col-md-6 pull-right np">

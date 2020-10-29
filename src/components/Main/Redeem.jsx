@@ -4,7 +4,7 @@ import CardContext from "../../context/CardContext";
 import { MainHeader } from "../../layouts/Main/MainHeader";
 
 export const Redeem = () => {
-  const { cardValue, points, setPoints } = useContext(
+  const { cardValue, cardKey, points, setPoints } = useContext(
     CardContext,
   );
   const setRedeemPoints = (value) => {
@@ -19,7 +19,11 @@ export const Redeem = () => {
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="col-lg-6 col-md-6 pull-left  np">
-              <div className="boxes padding">
+              <div
+                className="boxes padding"
+                onClick={() =>
+                  history.push(`/managepoints/collectpoints/${cardKey}`)}
+              >
                 <h5>
                   <div className="img" />
                   Collect Points

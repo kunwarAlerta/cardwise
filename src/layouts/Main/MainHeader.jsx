@@ -18,7 +18,7 @@ export const MainHeader = () => (
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="!#">
+            <a className="nav-link" href="/managepoints/redeem">
               Manage Points
               <span className="sr-only">(current)</span>
             </a>

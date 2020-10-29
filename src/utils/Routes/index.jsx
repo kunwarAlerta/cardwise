@@ -6,6 +6,7 @@ import { Redeem } from "../../components/Main/Redeem";
 import { RedemptionOptions } from "../../components/Main/RedemptionOptions";
 import { Redirect } from "react-router-dom";
 import { RedemptionOptionsSelected } from "../../components/Main/RedemptionOptionsSelected";
+import { CollectPoints } from "../../components/Main/CollectPoints";
 
 export default [
   {
@@ -46,6 +47,12 @@ export default [
     path: "/managepoints/redemption_options/:redemption_option_id",
     exact: true,
     component: () => <RedemptionOptionsSelected />,
+    protected: "main",
+  },
+  {
+    path: "/managepoints/collectpoints/:card_id",
+    exact: true,
+    component: () => <CollectPoints />,
     protected: "main",
   },
 ];
