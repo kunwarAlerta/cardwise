@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { Loader } from "../../utils/Loader/Loader";
 import { MainHeader } from "../../layouts/Main/MainHeader";
+import CardContext from "../../context/CardContext";
 
 export const CollectPoints = () => {
+  const { cardValue } = useContext(
+    CardContext,
+  );
   const [loading, setLoading] = useState(true);
   const [collectionOptions, setCollectionOptions] = useState({});
   const history = useHistory();
@@ -62,6 +66,9 @@ export const CollectPoints = () => {
         <div className="row">
           <div className="col-lg-12 text-center ">
             <div className="col-lg-6 col-md-6 pull-left  np">
+              <p className="lead pull-left m-l-25">
+                Your Card: {cardValue}
+              </p>
               <p className="lead pull-left m-l-25">Instructions:</p>
               <ol className="list">
                 {loading

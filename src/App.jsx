@@ -10,10 +10,24 @@ function App() {
   const [cardValue, setCardValue] = useState(null);
   const [cardKey, setCardKey] = useState(null);
   const [points, setPoints] = useState(null);
+  const [monVal, setMonVal] = useState(null);
+  const [redemptionValue, setRedemptionValue] = useState(null);
   useEffect(() => {
     let cardValue = localStorage.getItem("cardValue");
     let points = localStorage.getItem("points");
     let cardKey = localStorage.getItem("cardKey");
+    let monVal = localStorage.getItem("monVal");
+    let redemptionValue = localStorage.getItem("redemptionValue");
+    if (redemptionValue) {
+      setRedemptionValue(redemptionValue);
+    } else {
+      setRedemptionValue(null);
+    }
+    if (monVal) {
+      setMonVal(monVal);
+    } else {
+      setMonVal(null);
+    }
     if (cardKey) {
       setCardKey(cardKey);
     } else {
@@ -38,9 +52,13 @@ function App() {
           cardKey,
           cardValue,
           points,
+          monVal,
+          redemptionValue,
           setCardValue,
           setCardKey,
           setPoints,
+          setRedemptionValue,
+          setMonVal,
         }}
       >
         <Switch>

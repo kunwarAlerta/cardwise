@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
-//import CardContext from "../../context/CardContext";
+import CardContext from "../../context/CardContext";
 import axios from "axios";
 import { Loader } from "../../utils/Loader/Loader";
 import { MainHeader } from "../../layouts/Main/MainHeader";
 
 export const RedemptionOptionsSelected = () => {
-  // const { points } = useContext(
-  //   CardContext,
-  // );
+  const { monVal, redemptionValue } = useContext(
+    CardContext,
+  );
   const [loading, setLoading] = useState(true);
   const [redemptionInstructions, setRedemptionInstructions] = useState({});
   const history = useHistory();
@@ -42,17 +42,20 @@ export const RedemptionOptionsSelected = () => {
                 >
                   Back
                 </button>
-                <h5>Spice Jet Voucher Value:Rs 13,000</h5>
               </div>
-
-              <p className="lead pull-left m-l-25">Instructions:</p>
-              <ol className="list">
-                {loading
-                  ? <Loader />
-                  : redemptionInstructions.map((redemOption) =>
-                    <li>{redemOption.redemption_instructions}</li>
-                  )}
-              </ol>
+              <div className="col-lg-6 col-md-6 pull-left  np">
+                <p className="lead pull-left m-l-25">
+                  {redemptionValue}: Rs {monVal}
+                </p>
+                <p className="lead pull-left m-l-25">Instructions:</p>
+                <ol className="list">
+                  {loading
+                    ? <Loader />
+                    : redemptionInstructions.map((redemOption) =>
+                      <li>{redemOption.redemption_instructions}</li>
+                    )}
+                </ol>
+              </div>
             </div>
           </div>
         </div>

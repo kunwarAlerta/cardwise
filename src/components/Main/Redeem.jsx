@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 import CardContext from "../../context/CardContext";
 import { MainHeader } from "../../layouts/Main/MainHeader";
+import { Loader } from "../../utils/Loader/Loader";
 
 export const Redeem = () => {
+  const [loading, setLoading] = useState(true);
+  const [collectionOptions, setCollectionOptions] = useState({});
   const { cardValue, cardKey, points, setPoints } = useContext(
     CardContext,
   );
@@ -12,6 +16,21 @@ export const Redeem = () => {
     localStorage.setItem("points", value);
   };
   const history = useHistory();
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/http://cardwisetest3-env.eba-kk7hgqrd.us-east-2.elasticbeanstalk.com/findPoints/${cardKey}`,
+      )
+      .then((res) => {
+        setCollectionOptions(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }, [cardKey, points]);
+
   return (
     <React.Fragment>
       <MainHeader />
@@ -59,6 +78,8 @@ export const Redeem = () => {
               >
                 <input
                   type="number"
+                  min={1}
+                  max={10000000}
                   className="input-design w-320 mr-2"
                   placeholder="Enter Here"
                   onChange={(e) => setRedeemPoints(e.target.value)}
@@ -87,9 +108,11 @@ export const Redeem = () => {
                 </div>
                 <div className="modal-body">
                   <ul>
-                    <li>(Instructions to be updated later)</li>
-                    <li>Go to Netbanking</li>
-                    <li>Click on manage points</li>
+                    {loading
+                      ? <Loader />
+                      : collectionOptions.map((collectoption) => (
+                        <li>{collectoption.collection_option}</li>
+                      ))}
                   </ul>
                 </div>
                 <div className="modal-footer">

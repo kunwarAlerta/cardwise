@@ -8,9 +8,7 @@ import { HomeHeader } from "../../layouts/Home/HomeHeader";
 export const SelectCard = () => {
   const [loading, setLoading] = useState(true);
   const [Cards, setCards] = useState({});
-  const { cardKey, setCardValue, setCardKey } = useContext(
-    CardContext,
-  );
+  const { cardKey, setCardValue, setCardKey } = useContext(CardContext);
   const history = useHistory();
   useEffect(() => {
     axios
@@ -63,16 +61,20 @@ export const SelectCard = () => {
                         onChange={(e) => onChangeCard(e)}
                         defaultValue={cardKey}
                       >
-                        <option value="">
-                          Select Card
-                        </option>
+                        <option value="">Select Card</option>
                         {Cards.map((cd) => (
                           <option key={cd.card_id} value={cd.card_id}>
                             {cd.card}
                           </option>
                         ))}
                       </select>
-
+                      <button
+                        type="btn"
+                        onClick={() => history.push("/nocard")}
+                        className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"
+                      >
+                        I don’t own a credit card
+                      </button>
                       <button
                         type="submit"
                         className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"

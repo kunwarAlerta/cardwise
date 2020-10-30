@@ -6,9 +6,10 @@ import { Loader } from "../../utils/Loader/Loader";
 import { MainHeader } from "../../layouts/Main/MainHeader";
 
 export const RedemptionOptions = () => {
-  const { cardValue, cardKey, points } = useContext(
-    CardContext,
-  );
+  const { cardValue, cardKey, points, setRedemptionValue, setMonVal } =
+    useContext(
+      CardContext,
+    );
   const [loading, setLoading] = useState(true);
   const [redemptionOptions, setRedemptionOptions] = useState({});
   const history = useHistory();
@@ -26,6 +27,16 @@ export const RedemptionOptions = () => {
         setLoading(false);
       });
   }, [cardKey, points]);
+
+  const setRedemptionData = (redemoption) => {
+    setRedemptionValue(redemoption.redemption_option);
+    setMonVal(redemoption.mon_val);
+    localStorage.setItem("redemptionValue", redemoption.redemption_option);
+    localStorage.setItem("monVal", redemoption.mon_val);
+    history.push(
+      `/managepoints/redemption_options/${redemoption.redemption_option_id}`,
+    );
+  };
   return (
     <React.Fragment>
       <MainHeader />
@@ -62,11 +73,11 @@ export const RedemptionOptions = () => {
                 Your Points: <span>
                   {new Intl.NumberFormat("en-US").format(points) + "   "}
                 </span>
-
                 <span onClick={() => history.push("/managepoints/redeem")}>
                   <i className="fa fa-pencil" aria-hidden="true"></i>
                 </span>
               </button>
+
               <p className="lead">Your Card: {cardValue}</p>
               <h5>Redemption Options</h5>
               <p className="lead">Click on each option for more details</p>
@@ -74,10 +85,7 @@ export const RedemptionOptions = () => {
                 <div key={redemoption.redemption_option_id}>
                   <button
                     id={redemoption.redemption_option_id}
-                    onClick={() =>
-                      history.push(
-                        `/managepoints/redemption_options/${redemoption.redemption_option_id}`,
-                      )}
+                    onClick={() => setRedemptionData(redemoption)}
                     className="btn btn-lg btn-outline-secondary mb-3 w-50"
                   >
                     {redemoption.redemption_option}: Rs {redemoption.mon_val}
