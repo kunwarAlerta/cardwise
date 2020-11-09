@@ -60,11 +60,21 @@ export const Redeem = () => {
           </div>
           <div className="col-lg-12 text-center ">
             <h3 className="mt-5">How many points do you have?</h3>
-            <p className="lead">
+            <p className="lead mt-2">
               Your Card: {cardValue}
-              <span onClick={() => history.push("/selectcard")}>
-                <i className="fa fa-pencil" aria-hidden="true"></i>
-              </span>
+              {" "}
+              <button
+                type="button"
+                onClick={() => history.push("/selectcard")}
+                className="btn btn-lg btn-bd-primary  mr-md-3"
+              >
+                <span>
+                  {" "}
+                  <i className="fa fa-pencil" aria-hidden="true"></i>
+                  {" "}
+                  Change
+                </span>
+              </button>
             </p>
             <p className="lead">
               <a href="!#" data-toggle="modal" data-target="#redeemModal">
@@ -100,7 +110,7 @@ export const Redeem = () => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h4 className="modal-title">
-                    How to check your points tally:
+                    How to check your points:
                   </h4>
                   <button type="button" className="close" data-dismiss="modal">
                     ×
@@ -111,7 +121,9 @@ export const Redeem = () => {
                     {loading
                       ? <Loader />
                       : collectionOptions.map((collectoption) => (
-                        <li>{collectoption.collection_option}</li>
+                        <li key={collectoption.collection_option}>
+                          {collectoption.collection_option}
+                        </li>
                       ))}
                   </ul>
                 </div>

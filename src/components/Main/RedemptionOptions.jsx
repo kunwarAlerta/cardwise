@@ -67,17 +67,19 @@ export const RedemptionOptions = () => {
           </div>
           <div className="col-lg-12 col-md-6 text-center ">
             <div className=" flex-column flex-md-row text-center">
-              <button
-                className="btn btn-lg btn-bd-primary mb-3  w-320 mt-5"
-              >
+              <p className="lead">
                 Your Points: <span>
                   {new Intl.NumberFormat("en-US").format(points) + "   "}
                 </span>
-                <span onClick={() => history.push("/managepoints/redeem")}>
-                  <i className="fa fa-pencil" aria-hidden="true"></i>
-                </span>
-              </button>
-
+                <button
+                  className="btn btn-lg btn-bd-primary"
+                >
+                  <span onClick={() => history.push("/managepoints/redeem")}>
+                    <i className="fa fa-pencil" aria-hidden="true"></i>
+                    {" "}Edit
+                  </span>
+                </button>
+              </p>
               <p className="lead">Your Card: {cardValue}</p>
               <h5>Redemption Options</h5>
               <p className="lead">Click on each option for more details</p>

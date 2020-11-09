@@ -64,20 +64,20 @@ export const CollectPoints = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-12 text-center ">
-            <div className="col-lg-6 col-md-6 pull-left  np">
-              <p className="lead pull-left m-l-25">
-                Your Card: {cardValue}
-              </p>
-              <p className="lead pull-left m-l-25">Instructions:</p>
-              <ol className="list">
-                {loading
-                  ? <Loader />
-                  : collectionOptions.map((collectOption) =>
-                    <li>{collectOption.collection_option}</li>
-                  )}
-              </ol>
-            </div>
+          <div className="col-lg-12 col-md-12 pull-left np">
+            <p className="lead pull-left m-l-25">
+              Your Card: {cardValue}
+            </p>
+          </div>
+          <div className="col-lg-12 col-md-12 pull-left np">
+            <p className="lead pull-left m-l-25">Instructions:</p>
+            <ol className="list">
+              {loading
+                ? <Loader />
+                : collectionOptions.map((collectOption) =>
+                  <li>{collectOption.collection_option}</li>
+                )}
+            </ol>
           </div>
         </div>
       </div>

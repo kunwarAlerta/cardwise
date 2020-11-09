@@ -69,17 +69,17 @@ export const SelectCard = () => {
                         ))}
                       </select>
                       <button
+                        type="submit"
+                        className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"
+                      >
+                        Next
+                      </button>
+                      <button
                         type="btn"
                         onClick={() => history.push("/nocard")}
                         className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"
                       >
                         I don’t own a credit card
-                      </button>
-                      <button
-                        type="submit"
-                        className="btn btn-lg btn-outline-secondary mb-3 mr-md-3 mt-2"
-                      >
-                        Next
                       </button>
                     </div>
                   </form>
