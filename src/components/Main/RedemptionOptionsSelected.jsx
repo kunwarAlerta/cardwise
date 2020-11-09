@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CardContext from "../../context/CardContext";
 import axios from "axios";
 import { Loader } from "../../utils/Loader/Loader";
@@ -11,6 +11,7 @@ export const RedemptionOptionsSelected = () => {
   );
   const [loading, setLoading] = useState(true);
   const [redemptionInstructions, setRedemptionInstructions] = useState({});
+  const history = useHistory();
   const params = useParams();
   useEffect(() => {
     setLoading(true);
@@ -33,6 +34,15 @@ export const RedemptionOptionsSelected = () => {
         <div className="row">
           <div className="col-lg-12 text-center ">
             <div className=" flex-column flex-md-row text-center mt-5">
+              <div className="top-redeem-select">
+                <button
+                  onClick={() =>
+                    history.push("/managepoints/redemption_options")}
+                  className="btn btn-lg btn-outline-secondary mb-3 pull-left"
+                >
+                  Back
+                </button>
+              </div>
               <div className="col-lg-12 col-md-12 pull-left  np">
                 <p className="lead pull-left m-l-25">
                   {redemptionValue}: Rs {monVal}

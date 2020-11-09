@@ -52,18 +52,6 @@ export const CollectPoints = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-12 text-center">
-            <div className="col-lg-6 col-md-6 pull-left  np">
-              <button
-                onClick={() => history.push("/managepoints/redemption_options")}
-                className="btn btn-lg btn-outline-secondary mb-3 pull-left"
-              >
-                Back
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="row">
           <div className="col-lg-12 col-md-12 pull-left np">
             <p className="lead pull-left m-l-25">
               Your Card: {cardValue}
